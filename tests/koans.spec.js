@@ -75,13 +75,11 @@ describe('the JavaScript language', () => {
         ['g', 7, 8]
       ];
 
-      /*
-      expect(arr[1]).toEqual();
-      expect(arr[4]).toEqual();
-      expect(arr[6]).toEqual();
-      expect(arr[9]).toEqual();
-      expect(matrix[0][2]).toEqual();
-      */
+      expect(arr[1]).toEqual(2);
+      expect(arr[4]).toEqual(5);
+      expect(arr[6]).toEqual(undefined);
+      expect(arr[9]).toEqual(6);
+      expect(matrix[0][2]).toEqual('c');
     });
 
     it('may contain functions inside arrays', () => {
@@ -93,39 +91,39 @@ describe('the JavaScript language', () => {
         }
       ];
 
-      //expect(arr[2](1)).toEqual();
+      expect(arr[2](1)).toEqual(4);
     });
 
     it('concatenate arrays - well, kind of', () => {
       const a = [1, 2, 3];
       const b = [4, 5, 6];
 
-      //expect(a + b).toEqual();
+      expect(a + b).toEqual(a.toString() + b.toString());
     });
 
     it('joins arrays and strings', () => {
       const a = [1, 2, 3];
 
-      //expect ("1" + a).toEqual();
-      //expect(a + "1").toEqual();
+      expect ("1" + a).toEqual('1' + a.toString());
+      expect(a + "1").toEqual(a.toString() + '1');
     });
 
     it('joins arrays and other things', () => {
       const a = [1, 2, 3];
       const b = ['x', 'y', 'z'];
 
-      //expect(1 + a).toEqual();
-      //expect(a + 1).toEqual();
-      //expect(1 + b).toEqual();
-      //expect(true + a).toEqual();
+      expect(1 + a).toEqual('1' + a.toString());
+      expect(a + 1).toEqual(a.toString() + '1');
+      expect(1 + b).toEqual('1' + b.toString());
+      expect(true + a).toEqual(true.toString() + a.toString());
     });
 
     it("can't compare arrays", () => {
       const a = [1, 2, 3];
       const b = [1, 2, 3];
 
-      //expect(a == b).toBe.....();  // Truthy or Falsy
-      //expect(a === b).toBe.....(); // Truthy or Falsy
+      expect(a == b).toBeFalsy();  // Truthy or Falsy
+      expect(a === b).toBeFalsy(); // Truthy or Falsy
     });
 
     it('is not the same to compare by value than by reference ', () => {
